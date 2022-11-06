@@ -31,8 +31,10 @@ const SignIn = () => {
         onChange={handleChange}
         name="password"
       />
+      <div className="btns">
       <button className="btn" onClick={handleClick}>Login</button>
       <Link className="btn" to="/signup">SignUp</Link>
+      </div>
       </div>
     </>
   );
