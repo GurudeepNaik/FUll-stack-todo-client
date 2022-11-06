@@ -138,7 +138,7 @@ const HeaderComp = () => {
   };
   return (
     <>
-      <div className="header">User Name:{localStorage.getItem("username")}</div>
+      <div className="header">Welcome : {localStorage.getItem("username")}</div>
       <div className="body">
         <div className="sideBar">
           <h2>To Do List</h2>
@@ -148,12 +148,12 @@ const HeaderComp = () => {
               return <div>{each.activty}</div>;
             })}
           </div>
-          <button onClick={handleLogOut}>Log Out</button>
+          <button className="btnLogOut button" onClick={handleLogOut}>Log Out</button>
         </div>
         <div className="main">
           <label>Add New Activity</label>
           <input type="text" value={activity} onChange={handleChange} />
-          <button onClick={handleClick}>Add</button>
+          <button className="btnAdd button" onClick={handleClick}>Add</button>
 
           <div className="table">
             <table id="customers">
@@ -175,11 +175,12 @@ const HeaderComp = () => {
                       <td>
                         {each.status !== "Complete" ? (
                           each.status === "Ongoing" ? (
-                            <button onClick={() => endTimer(each._id)}>
+                            <button className="btnEnd button" onClick={() => endTimer(each._id)}>
                               End
                             </button>
                           ) : (
                             <button
+                            className="btnStart button"
                               onClick={() =>
                                 handleStart(each.time_taken, each._id)
                               }
@@ -190,13 +191,13 @@ const HeaderComp = () => {
                         ) : (
                           <></>
                         )}
-                        <button onClick={() => handleDelete(each._id)}>
+                        <button className="btnDelete button" onClick={() => handleDelete(each._id)}>
                           Delete
                         </button>
-                        <button onClick={() => handlePause(each._id)}>
+                        <button className="btnPause button" onClick={() => handlePause(each._id)}>
                           Pause
                         </button>
-                        <button onClick={() => handleResume(each._id)}>
+                        <button className="btnResume button" onClick={() => handleResume(each._id)}>
                           Resume
                         </button>
                       </td>
